@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <InDi.ModVersion>Installed mod-version: {0}</InDi.ModVersion>
+  <InDi.Weather>Weather:</InDi.Weather>
+  <InDi.Enabled>Enabled</InDi.Enabled>
+  <InDi.IncidentName>Incident name</InDi.IncidentName>
+  <InDi.EnableAll>Enable all</InDi.EnableAll>
+  <InDi.DisableAll>Disable All</InDi.DisableAll>
+  <InDi.LastIncident>Last Incident: {0}</InDi.LastIncident>
+  <InDi.None>None</InDi.None>
+</LanguageData>

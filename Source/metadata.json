@@ -1,0 +1,17 @@
+{
+  "Continued": true,
+  "CanAdd": "",
+  "CanRemove": "0",
+  "LastXmlCleaning": "2025-09-24T21:07:21.0115153+02:00",
+  "SocialImageSet": true,
+  "Patches": false,
+  "Defs": false,
+  "Assemblies": true,
+  "LinesOfCode": 8338,
+  "LinesOfXML": 0,
+  "SearchTags": [
+    " events",
+    " weather"
+  ],
+  "PreviewVersion": "1.6"
+}

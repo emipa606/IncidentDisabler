@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33723.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{5e1b23c5-4416-4d93-8427-cf2b27bea3f0}") = "IncidentDisabler", "IncidentDisabler\IncidentDisabler.csproj", "{f9dea28a-6ecd-4319-8529-813d7ce28ffa]}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{f9dea28a-6ecd-4319-8529-813d7ce28ffa}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{f9dea28a-6ecd-4319-8529-813d7ce28ffa}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{f9dea28a-6ecd-4319-8529-813d7ce28ffa}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{f9dea28a-6ecd-4319-8529-813d7ce28ffa}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {f1b176a9-e369-491e-81de-d16b945e8bb0}
+	EndGlobalSection
+EndGlobal
