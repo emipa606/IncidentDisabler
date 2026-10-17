@@ -1,12 +1,12 @@
-# [Incident Disabler (Continued)]()
+# [Incident Disabler (Continued)](https://steamcommunity.com/sharedfiles/filedetails/?id=3574116665)
 
-![Image](https://i.imgur.com/buuPQel.png)
+![Image](https://img.litet.net/logos/Info.png)
 
 Update of Murmurs mod https://steamcommunity.com/sharedfiles/filedetails/?id=2347633285
 
-![Image](https://i.imgur.com/pufA0kM.png)
+![Image](https://img.litet.net/logos/Notice.png)
 	
-![Image](https://i.imgur.com/Z4GOv8H.png)
+![Image](https://img.litet.net/logos/OriginalDescription.png)
 
 Adds the ability to disable any incidents during a game in progress. All incidents, either vanilla or those added by mods, will show up in the mod configuration menu where they can be toggled off and on.
 
@@ -19,7 +19,7 @@ Can be safely added or removed from a game in progress.
 
 Should be compatible with just about everything.
 
-![Image](https://i.imgur.com/PwoNOj4.png)
+![Image](https://img.litet.net/logos/ReportingIssues.png)
 
 
 
@@ -31,4 +31,6 @@ Should be compatible with just about everything.
 -  If you have the solution for a problem, please post it to the GitHub repository.
 -  Use [RimSort](https://github.com/RimSort/RimSort/releases/latest) to sort your mods
 
+ 
 
+[![Image](https://img.shields.io/github/v/release/emipa606/IncidentDisabler?label=latest%20version&style=plastic&color=9f1111&labelColor=black)](https://steamcommunity.com/sharedfiles/filedetails/changelog/3574116665) | events, weather

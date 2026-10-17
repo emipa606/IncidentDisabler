@@ -1,39 +1,78 @@
-# Copilot Instructions for "Incident Disabler (Continued)" Mod Development
+# GitHub Copilot Instructions for Incident Disabler (Continued) Mod Development
 
 ## Mod Overview and Purpose
 
-The "Incident Disabler (Continued)" mod is designed to enhance the user experience in RimWorld by granting players the ability to disable or enable any incident, including those created by other mods, during an ongoing game. It offers a flexible approach to game customization, allowing players to tailor their experience by managing incidents and weather events according to their preferences. This mod ensures seamless integration and can be added or removed mid-game without risks.
+**Mod Name:** Incident Disabler (Continued)
+
+**Description:** 
+Incident Disabler (Continued) is a RimWorld mod that updates the original mod by Murmur. Its primary function is to allow players to disable any game incidents during gameplay. This includes both incidents from the base game and those introduced by other mods. In addition to incidents, weather events can also be toggled on or off.
+
+**Key Objectives:**
+- Provide flexibility in gameplay by allowing players to disable unwanted incidents.
+- Ensure compatibility and seamless integration with other RimWorld mods.
+- Support both new and existing game saves, allowing the mod to be added or removed without affecting game progress.
 
 ## Key Features and Systems
 
-- **Incident Management**: Allows toggling of all game incidents, both vanilla and modded, via a configuration menu.
-- **Weather Control**: Adds functionality to manage weather-related events, categorized separately at the bottom of the configuration menu.
-- **Mod Compatibility**: Designed to work alongside other mods without causing conflicts or requiring extensive setup.
+- **Incident Management:** Ability to toggle any in-game incident off or on via the mod configuration menu, which includes a comprehensive list of incidents.
+- **Weather Event Control:** Incorporates weather events, providing them as a separate category at the bottom of the incident list.
+- **Safe Game Integration:** The mod can be dynamically integrated into or removed from ongoing games without adversely affecting the save state.
+- **Broad Compatibility:** Designed to work with virtually all other mods, minimizing compatibility issues.
 
 ## Coding Patterns and Conventions
 
-- **Namespaces and Access Modifiers**: Use internal access for classes that are not intended to be accessed from outside the assembly, and public access for settings and mod classes that interface with RimWorld.
-- **Singleton and Static Classes**: Use static classes like `S` and `Startup` for maintaining global states or executing startup logic.
-- **Mod Settings Integration**: Employ the `ModSettings` derived class (`Settings`) to handle configuration and persist user choices.
+- **C# File Structure:** The code base is organized with a clear structure for code handling incidents and patches.
+  - Example file locations include `HarmonyPatcher.cs`, `Startup.cs`, and various `IncidentWorker` override methods.
+  
+- **Descriptive Naming:** Classes and methods are descriptively named to indicate their purpose, such as `IncidentWorker_CanFireNow` with a `Postfix` method.
+
+- **Consistent Formatting:** Adhere to consistent naming conventions, code formatting, and organization to promote clarity and maintainability.
 
 ## XML Integration
 
-- Ensure that all references to incidents and weather events are correctly reflected in the RimWorld's XML definitions for proper integration. Modify XML files as needed to introduce new configuration options and inject them into the mod settings menu.
+- **Mod Metadata:** Utilizes XML files, such as `About.xml`, to define mod information and dependencies. 
+
+- **Dependency Declaration:** The XML integration is crucial for declaring dependencies, such as `brrainz.harmony`, which is necessary for harmony patching.
 
 ## Harmony Patching
 
-- Utilize Harmony to safely and effectively alter the vanilla game's methods. 
-- Commonly patched areas are the incident trigger checks (`IncidentWorker_CanFireNow`) and execution paths (`IncidentWorker_TryExecute`, `IncidentWorker_TryExecuteWorker`).
-- Implement harmony patches within the `HarmonyPatcher.cs` to ensure mod operations coexist with base game mechanics.
+- **Harmony Library:** The mod uses the Harmony library to inject custom functionality into the game's original code without altering the core files.
+
+- **Patch Implementation:** Patches are defined using Harmony to modify incident behaviors, with examples including postfixes on the `IncidentWorker` classes.
+
+- **Example Patches:**
+  - `IncidentWorker_CanFireNow.cs` - Controls whether incidents can occur.
+  - `IncidentWorker_TryExecute.cs` - Determines the execution of incidents.
+  - `IncidentWorker_TryExecuteWorker.cs` - Manages the worker's ability to execute incidents.
 
 ## Suggestions for Copilot
 
-When using GitHub Copilot to aid in development:
+When using GitHub Copilot to assist with mod development for Incident Disabler (Continued), consider the following suggestions:
 
-1. **Code Completion**: Leverage Copilot to autocomplete method signatures when working on classes like `IncidentWorker_*` and `WeatherDecider_*`.
-2. **Harmony Setup**: Use Copilot to assist in setting up Harmony patches. Look for patterns on how to structure prefix and postfix methods within `HarmonyPatcher.cs`.
-3. **UI Elements**: Seek suggestions on creating dynamic UI elements in `ModSettingsPage.cs` to improve configurability within the mod menu.
-4. **Debugging and Logging**: Copilot can suggest patterns for implementing logging within methods to facilitate debugging, especially for complex incident management logic.
-5. **Documentation**: Ask Copilot to generate or fill in XML comments for methods and classes to maintain comprehensive documentation within the source code.
+1. **Code Completion:** Leverage Copilot to suggest code snippets for common patterns in Harmony patching, such as creating postfix or prefix methods for the incident management code.
 
-By following these instructions and leveraging tools such as GitHub Copilot, you'll be able to streamline the development and maintenance of the "Incident Disabler (Continued)" mod effectively.
+2. **XML Editing:** Use Copilot to help write or refine XML entries, particularly for defining dependency relationships and mod metadata.
+
+3. **Error Handling:** Trust Copilot for ideas on error handling or logging mechanisms that can be incorporated into the mod to improve reliability and user feedback.
+
+4. **Optimization Suggestions:** Allow Copilot to suggest potential optimizations or improvements in the incident handling logic, such as reducing redundancy or enhancing performance.
+
+5. **Documentation:** Utilize Copilot to generate or improve comments and documentation within the codebase to ensure clarity for future developers.
+
+By following these instructions, developers can effectively utilize GitHub Copilot to enhance the development of the Incident Disabler (Continued) mod, resulting in a robust, flexible, and player-centric experience.
+
+## Project Solution Guidelines
+- Relevant mod XML files are included as Solution Items under the solution folder named XML, these can be read and modified from within the solution.
+- Use these in-solution XML files as the primary files for reference and modification.
+- The `.github/copilot-instructions.md` file is included in the solution under the `.github` solution folder, so it should be read/modified from within the solution instead of using paths outside the solution. Update this file once only, as it and the parent-path solution reference point to the same file in this workspace.
+- When making functional changes in this mod, ensure the documented features stay in sync with implementation; use the in-solution `.github` copy as the primary file.
+- In the solution is also a project called Assembly-CSharp, containing a read-only version of the decompiled game source, for reference and debugging purposes.
+- For any new documentation, update this copilot-instructions.md file rather than creating separate documentation files.
+
+
+## Hard rules (must follow)
+- Do NOT run commands that modify the repo (no git commit, git apply, dotnet format) unless explicitly asked.
+- Prefer minimal reads: read only the smallest code region needed (around the suspicious lines).
+- When mentioning SonarQube issues, automatically use the SonarQube MCP service to fetch and address issues instead of making inferred fixes without querying SonarQube first.
+- When mentioning the rimworld log, automatically use the Rimworld MCP service to fetch the log.
+

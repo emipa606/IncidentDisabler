@@ -1,3 +1,4 @@
+using System.Linq;
 using Mlie;
 using UnityEngine;
 using Verse;
@@ -85,39 +86,39 @@ public class IncidentDisablerMod : Mod
         listingStandard3.verticalSpacing = 8f;
         listingStandard3.ColumnWidth = 500f;
         listingStandard3.Gap(4f);
-        foreach (var incidentDef2 in IncidentDisabler.IncidentDefs)
+        foreach (var defName in IncidentDisabler.IncidentDefs.Select(incidentDef => incidentDef.defName))
         {
-            var checkOn = !Settings.DisabledIncidentNames.Contains(incidentDef2.defName);
-            listingStandard3.CheckboxLabeled(incidentDef2.defName, ref checkOn);
+            var checkOn = !Settings.DisabledIncidentNames.Contains(defName);
+            listingStandard3.CheckboxLabeled(defName, ref checkOn);
             if (checkOn)
             {
-                if (Settings.DisabledIncidentNames.Contains(incidentDef2.defName))
+                if (Settings.DisabledIncidentNames.Contains(defName))
                 {
-                    Settings.DisabledIncidentNames.Remove(incidentDef2.defName);
+                    Settings.DisabledIncidentNames.Remove(defName);
                 }
             }
-            else if (!Settings.DisabledIncidentNames.Contains(incidentDef2.defName))
+            else if (!Settings.DisabledIncidentNames.Contains(defName))
             {
-                Settings.DisabledIncidentNames.Add(incidentDef2.defName);
+                Settings.DisabledIncidentNames.Add(defName);
             }
         }
 
         listingStandard3.Gap(16f);
         listingStandard3.Label("InDi.Weather".Translate());
-        foreach (var weatherDef in IncidentDisabler.WeatherDefs)
+        foreach (var defName in IncidentDisabler.WeatherDefs.Select(weatherDef => weatherDef.defName))
         {
-            var checkOn2 = !Settings.DisabledIncidentNames.Contains(weatherDef.defName);
-            listingStandard3.CheckboxLabeled(weatherDef.defName, ref checkOn2);
+            var checkOn2 = !Settings.DisabledIncidentNames.Contains(defName);
+            listingStandard3.CheckboxLabeled(defName, ref checkOn2);
             if (checkOn2)
             {
-                if (Settings.DisabledIncidentNames.Contains(weatherDef.defName))
+                if (Settings.DisabledIncidentNames.Contains(defName))
                 {
-                    Settings.DisabledIncidentNames.Remove(weatherDef.defName);
+                    Settings.DisabledIncidentNames.Remove(defName);
                 }
             }
-            else if (!Settings.DisabledIncidentNames.Contains(weatherDef.defName))
+            else if (!Settings.DisabledIncidentNames.Contains(defName))
             {
-                Settings.DisabledIncidentNames.Add(weatherDef.defName);
+                Settings.DisabledIncidentNames.Add(defName);
             }
         }
 
